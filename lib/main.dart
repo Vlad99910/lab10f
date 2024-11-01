@@ -33,7 +33,18 @@ class _MainScreenState extends State<MainScreen> {
       barrierDismissible: true,
       builder: (BuildContext context) {
         return AlertDialog(
-          title: Text(message),
+          content: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              Image.asset(
+                'assets/robot_icon.png',
+                height: 50,
+                width: 50,
+              ),
+              SizedBox(height: 10),
+              Text(message),
+            ],
+          ),
           actions: <Widget>[
             TextButton(
               child: Text('OK'),
@@ -83,6 +94,7 @@ class _MainScreenState extends State<MainScreen> {
             ),
             SizedBox(height: 16.0),
             Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Text('Font size: ${_fontSize.toStringAsFixed(1)}'),
                 Expanded(
